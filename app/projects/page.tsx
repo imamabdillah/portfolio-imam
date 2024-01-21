@@ -4,7 +4,6 @@ import React from "react";
 import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import { Article } from "./article";
 import { Eye } from "lucide-react";
 
 export default function ProjectsPage() {
@@ -12,6 +11,7 @@ export default function ProjectsPage() {
   const featured = allProjects.find((project) => project.slug === "kasir-foodcourt")!;
   const top2 = allProjects.find((project) => project.slug === "voting")!;
   const top3 = allProjects.find((project) => project.slug === "desa-cantik")!;
+  const onlineVoting = allProjects.find((project) => project.slug === "web-vote")!;
 
   // Sort the remaining projects
   const sorted = allProjects
@@ -20,7 +20,8 @@ export default function ProjectsPage() {
       (project) =>
         project.slug !== featured.slug &&
         project.slug !== top2.slug &&
-        project.slug !== top3.slug,
+        project.slug !== top3.slug &&
+        project.slug !== onlineVoting.slug, // Exclude Web Vote from sorting
     )
     .sort(
       (a, b) =>
@@ -129,9 +130,9 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* Display other projects in a grid */}
+        {/* Display Web Vote project and other projects in a grid */}
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
-          {sorted.map((project) => (
+          {[onlineVoting, ...sorted].map((project) => (
             project && (
               <Card key={project.slug}>
                 <Link href={`/projects/${project.slug}`}>
