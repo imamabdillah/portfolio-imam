@@ -9,9 +9,10 @@ import { Eye } from "lucide-react";
 export default function ProjectsPage() {
   // Retrieve the featured, top2, and top3 projects
   const featured = allProjects.find((project) => project.slug === "kasir-foodcourt")!;
-  const top2 = allProjects.find((project) => project.slug === "voting")!;
-  const top3 = allProjects.find((project) => project.slug === "desa-cantik")!;
+  const top2 = allProjects.find((project) => project.slug === "desa-cantik")!;
+  const top3 = allProjects.find((project) => project.slug === "voting")!;
   const onlineVoting = allProjects.find((project) => project.slug === "web-phone-store")!;
+  const skd = allProjects.find((project) => project.slug === "skd-uas")!;
 
   // Sort the remaining projects
   const sorted = allProjects
@@ -21,7 +22,9 @@ export default function ProjectsPage() {
         project.slug !== featured.slug &&
         project.slug !== top2.slug &&
         project.slug !== top3.slug &&
-        project.slug !== onlineVoting.slug, // Exclude Web Vote from sorting
+        project.slug !== onlineVoting.slug && 
+        project.slug !== skd.slug, 
+
     )
     .sort(
       (a, b) =>
@@ -132,7 +135,7 @@ export default function ProjectsPage() {
 
         {/* Display Web Vote project and other projects in a grid */}
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
-          {[onlineVoting, ...sorted].map((project) => (
+          {[skd,onlineVoting, ...sorted].map((project) => (
             project && (
               <Card key={project.slug}>
                 <Link href={`/projects/${project.slug}`}>
