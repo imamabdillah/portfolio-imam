@@ -11,6 +11,7 @@ export default function ProjectsPage() {
   const featured = allProjects.find((project) => project.slug === "kasir-foodcourt")!;
   const top2 = allProjects.find((project) => project.slug === "voting")!;
   const top3 = allProjects.find((project) => project.slug === "desa-cantik")!;
+  const onlineVoting = allProjects.find((project) => project.slug === "web-phone-store")!;
 
   // Sort the remaining projects
   const sorted = allProjects
