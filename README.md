@@ -11,9 +11,3 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
 
 
 
-Then install dependencies and run the development server:
-```sh-session
-pnpm install
-pnpm dev
-```
-
