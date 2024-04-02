@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: {
@@ -12,8 +13,7 @@ export const metadata: Metadata = {
   description: " Fullstack Web Developer ",
   openGraph: {
     title: "Imam Portfolio",
-    description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+    description: "Co-founder of unkey.dev and founder of planetfall.io",
     url: "https://chronark.com",
     siteName: "Imamportfolio.com",
     images: [
@@ -64,10 +64,12 @@ export default function RootLayout({
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
         <Analytics />
+        <SpeedInsights />
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          }`}
+        className={`bg-black ${
+          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+        }`}
       >
         {children}
       </body>
