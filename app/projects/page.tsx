@@ -21,7 +21,7 @@ export default function ProjectsPage() {
   )!;
   const phoneStore = allProjects.find(
     (project) => project.slug === "web-phone-store"
-  );
+  )!;
   const skd = allProjects.find((project) => project.slug === "skd-uas")!;
 
   // Sort the remaining projects
